@@ -13,16 +13,18 @@ function AppLayout() {
   const cartLength = cart.length > 0;
 
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto] bg-[url('../../public/hero-wave-bg.png')] bg-cover">
+    <div className="grid min-h-screen grid-rows-[auto_1fr_auto] bg-[url('../../public/hero-wave-bg.png')] bg-[length:100%_auto] bg-top bg-repeat">
       {isLoading && <Loader />}
 
       <Header />
 
-      <main>
-        <Outlet />
-      </main>
+      <div className="overflow-y-scroll">
+        <main>
+          <Outlet />
+        </main>
+      </div>
 
-      {cartLength && <CartOverview />}
+      <CartOverview />
     </div>
   );
 }

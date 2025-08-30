@@ -4,6 +4,8 @@ function Button({ children, type = 'primary', to }) {
   const style = {
     primary:
       'uppercase text-xs sm:text-sm bg-amber-400 text-white font-semibold px-6 py-3 rounded-full hover:bg-amber-500  duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2',
+    small:
+      'text-xs bg-amber-400 text-white font-semibold px-4 py-2 rounded-full hover:bg-amber-500  duration-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2',
   };
 
   if (to)

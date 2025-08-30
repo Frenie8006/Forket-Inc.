@@ -8,7 +8,7 @@ function Home() {
   const username = useSelector(getUsername);
 
   return (
-    <div className="mx-auto mt-12 flex max-w-2xl flex-col items-center p-6 text-center text-stone-100">
+    <div className="l mx-auto mt-12 flex max-w-2xl flex-col items-center p-6 text-center text-stone-100">
       <h1 className="text-5xl uppercase tracking-widest md:text-7xl">
         Powering
       </h1>

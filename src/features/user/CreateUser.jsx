@@ -26,7 +26,7 @@ function CreateUser() {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Your full name"
-        className="mb-6 block w-72 rounded-full px-4 py-2 text-stone-900 transition placeholder:text-stone-400 focus:outline-amber-400 focus:ring-1 focus:ring-amber-400 focus:ring-offset-2"
+        className="mb-6 block w-72 rounded-full px-4 py-2 text-sm text-stone-900 transition placeholder:text-stone-400 focus:outline-amber-400 focus:ring-1 focus:ring-amber-400 focus:ring-offset-2"
       />
 
       {username !== '' && <Button>&rarr; Start ordering</Button>}
