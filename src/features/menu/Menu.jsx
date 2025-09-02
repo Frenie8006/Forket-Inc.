@@ -1,17 +1,23 @@
 import { useLoaderData } from 'react-router-dom';
 import { getMenu } from '../../services/apiProduct';
+
 import MenuItem from './MenuItem';
+import CartOverview from '../cart/CartOverview';
 
 function Menu() {
   const menu = useLoaderData();
   console.log(menu);
 
   return (
-    <ul className="m-4 space-y-1 divide-y divide-stone-300">
-      {menu.map((item) => (
-        <MenuItem item={item} key={item.id} />
-      ))}
-    </ul>
+    <div>
+      <ul className="m-4 space-y-1 divide-y divide-stone-300">
+        {menu.map((item) => (
+          <MenuItem item={item} key={item.id} />
+        ))}
+      </ul>
+
+      <CartOverview />
+    </div>
   );
 }
 

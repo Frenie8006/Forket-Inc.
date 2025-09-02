@@ -16,7 +16,7 @@ function Home() {
         Diamond Marketplace
       </p>
 
-      <blockquote className="mb-8 text-stone-300">
+      <blockquote className="mb-8 text-sm text-stone-300 sm:text-base sm:leading-[2]">
         <span className="font-semibold">ForKet</span> is the first professional
         diamond online martket to nationwide marketplace platform.
       </blockquote>
