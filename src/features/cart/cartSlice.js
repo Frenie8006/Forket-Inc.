@@ -34,6 +34,10 @@ const cartSlice = createSlice({
       // Shortcut technique to remove item if quantity is 0
       if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
+
+    clearCart(state) {
+      state.cart = [];
+    },
   },
 });
 
@@ -42,6 +46,7 @@ export const {
   deleteItem,
   incrementCartQuantity,
   decrementCartQuantity,
+  clearCart,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
