@@ -6,7 +6,6 @@ import CartOverview from '../cart/CartOverview';
 
 function Menu() {
   const menu = useLoaderData();
-  console.log(menu);
 
   return (
     <div>
