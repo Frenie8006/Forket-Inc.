@@ -1,6 +1,7 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   decrementCartQuantity,
+  getTotalQuantityById,
   incrementCartQuantity,
 } from '../cart/cartSlice';
 
@@ -9,6 +10,7 @@ import DeleteItem from '../cart/DeleteItem';
 
 function UpdateCartQuantity({ id }) {
   const dispatch = useDispatch();
+  const totalQuantityById = useSelector(getTotalQuantityById(id));
 
   return (
     <div className="flex flex-wrap items-center justify-center gap-4">
@@ -19,6 +21,7 @@ function UpdateCartQuantity({ id }) {
         >
           —
         </Button>
+        <p className="text-sm font-semibold">{totalQuantityById}</p>
         <Button
           type="secondary"
           onClick={() => dispatch(incrementCartQuantity(id))}

@@ -1,18 +1,30 @@
 import { useState } from 'react';
 import { Form, useActionData, useNavigation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getUsername } from '../user/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCart, getTotalCartPrice } from '../cart/cartSlice';
+import { fetchAdress } from '../user/userSlice';
 
 import Button from '../../ui/Button';
 import EmptyCart from '../cart/EmptyCart';
 
 function CreateOrder() {
   const [withPriority, setWithPriority] = useState(false);
-  const username = useSelector(getUsername);
   const cart = useSelector(getCart);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
+  const dispatch = useDispatch();
+  const {
+    username,
+    address,
+    position,
+    status: addressStatus,
+    error: errorStatus,
+  } = useSelector((state) => state.user);
+  const isLoadingAddress = addressStatus === 'loading';
+  console.log('address ', address);
+  console.log('position ', position);
+  console.log('address status ', addressStatus);
+  console.log('error: status ', errorStatus);
 
   const formErrors = useActionData(); // Errors returned from the action
 
@@ -69,13 +81,37 @@ function CreateOrder() {
             <label htmlFor="address" className="sm:basis-40">
               Address
             </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              required
-              className="w-full grow rounded-full px-6 py-2.5 text-xs text-stone-700 shadow-sm focus:outline-none sm:text-sm"
-            />
+
+            <div className="w-full grow">
+              <input
+                type="text"
+                id="address"
+                name="address"
+                required
+                disabled={isLoadingAddress}
+                defaultValue={address}
+                className="w-full grow rounded-full px-6 py-2.5 text-xs text-stone-700 shadow-sm focus:outline-none sm:text-sm"
+              />
+              {addressStatus === 'error' && (
+                <p className="mt-2 bg-red-100 p-2 text-xs text-red-700">
+                  {errorStatus}
+                </p>
+              )}
+            </div>
+
+            {!position.latitude && !position.longitude && (
+              <span className="absolute right-1 top-[34px] sm:top-[3.5px]">
+                <Button
+                  type="small"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    dispatch(fetchAdress());
+                  }}
+                >
+                  Get Position
+                </Button>
+              </span>
+            )}
           </div>
 
           <div className="mb-10 flex items-center gap-5">
@@ -97,7 +133,7 @@ function CreateOrder() {
             <Button type="primary" disabled={isSubmitting}>
               {isSubmitting
                 ? 'Placing order...'
-                : `Order now for (${totalPrice.toFixed(2)})`}
+                : `Order now for $${totalPrice.toFixed(2)}`}
             </Button>
           </div>
         </Form>

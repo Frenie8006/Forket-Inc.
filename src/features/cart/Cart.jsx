@@ -4,6 +4,7 @@ import { clearCart, getCart } from './cartSlice';
 import CartItem from './CartItem';
 import Button from '../../ui/Button';
 import EmptyCart from './EmptyCart';
+import { NavLink } from 'react-router-dom';
 
 function Cart() {
   const cart = useSelector(getCart);
@@ -19,13 +20,17 @@ function Cart() {
         ))}
       </ul>
 
-      <div className="m-2 mb-4 mt-2 flex items-center space-x-4 overflow-hidden rounded-md bg-stone-100 p-4 shadow-md">
-        <Button type="primary" to="/order/new">
-          Order now
-        </Button>
-        <Button type="tertiary" onClick={() => dispatch(clearCart())}>
-          Clear cart
-        </Button>
+      <div className="m-2 mb-4 mt-2 flex flex-col items-center justify-between gap-6 space-x-4 overflow-hidden rounded-md bg-stone-100 p-4 shadow-md sm:flex-row">
+        <div className="flex flex-wrap items-center justify-center space-x-2 space-y-2">
+          <Button type="primary" to="/order/new">
+            Order now
+          </Button>
+          <Button type="tertiary" onClick={() => dispatch(clearCart())}>
+            Clear cart
+          </Button>
+        </div>
+
+        <NavLink to="/menu">&larr; Back to menu</NavLink>
       </div>
     </div>
   );
