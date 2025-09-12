@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { getTotalCartPrice, getTotalCartQuantity } from './cartSlice';
+import { formatCurrency } from '../../utils/helpers';
 import { Link } from 'react-router-dom';
 
 function CartOverview() {
@@ -13,7 +14,7 @@ function CartOverview() {
       <p className="space-x-8">
         <span>{totalCartQuantity} products</span>
         <span className="font-semibold">
-          Total price: ${totalCartPrice.toFixed(2)}
+          Total price: {formatCurrency(totalCartPrice)}
         </span>
       </p>
 

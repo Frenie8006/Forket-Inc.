@@ -3,6 +3,7 @@ import { Form, useActionData, useNavigation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCart, getTotalCartPrice } from '../cart/cartSlice';
 import { fetchAdress } from '../user/userSlice';
+import { formatCurrency } from '../../utils/helpers';
 
 import Button from '../../ui/Button';
 import EmptyCart from '../cart/EmptyCart';
@@ -21,10 +22,6 @@ function CreateOrder() {
     error: errorStatus,
   } = useSelector((state) => state.user);
   const isLoadingAddress = addressStatus === 'loading';
-  console.log('address ', address);
-  console.log('position ', position);
-  console.log('address status ', addressStatus);
-  console.log('error: status ', errorStatus);
 
   const formErrors = useActionData(); // Errors returned from the action
 
@@ -120,8 +117,8 @@ function CreateOrder() {
               id="priority"
               name="priority"
               className="h-5 w-5 cursor-pointer accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
-              onChange={(e) => setWithPriority(e.target.checked)}
               checked={withPriority}
+              onChange={(e) => setWithPriority(e.target.checked)}
             />
             <label htmlFor="priority" className="cursor-pointer text-sm">
               Want to give you order priority?
@@ -133,7 +130,7 @@ function CreateOrder() {
             <Button type="primary" disabled={isSubmitting}>
               {isSubmitting
                 ? 'Placing order...'
-                : `Order now for $${totalPrice.toFixed(2)}`}
+                : `Order now for ${formatCurrency(totalPrice)}`}
             </Button>
           </div>
         </Form>

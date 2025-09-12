@@ -42,3 +42,12 @@ export async function createOrder(newOrder) {
 
   return localOrder;
 }
+
+// Dummy local API
+export function updateOrder(orderId) {
+  const idx = localOrders.findIndex((order) => order.id === +orderId);
+  if (idx === -1) return null;
+
+  localOrders[idx] = { ...localOrders[idx], priority: true };
+  return localOrders[idx];
+}

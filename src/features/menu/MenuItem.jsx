@@ -3,6 +3,7 @@ import { addItem, getTotalQuantityById } from '../cart/cartSlice';
 
 import Button from '../../ui/Button';
 import UpdateCartQuantity from './UpdateCartQuantity';
+import { formatCurrency } from '../../utils/helpers';
 
 function MenuItem({ item }) {
   const { id, title, description, price, image } = item;
@@ -31,7 +32,7 @@ function MenuItem({ item }) {
         <p className="mb-2 text-sm font-light text-stone-600">{description}</p>
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="font-semibold">${price}</p>
+          <p className="font-semibold">{formatCurrency(price)}</p>
 
           {totalQuantityById > 0 ? (
             <UpdateCartQuantity id={id} />
