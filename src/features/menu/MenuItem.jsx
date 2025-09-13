@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getTotalQuantityById } from '../cart/cartSlice';
 
@@ -7,9 +8,10 @@ import { formatCurrency } from '../../utils/helpers';
 
 function MenuItem({ item }) {
   const { id, title, description, price, image } = item;
-
   const dispatch = useDispatch();
   const totalQuantityById = useSelector(getTotalQuantityById(id));
+
+  const [isExpanded, setIsExpanded] = useState(false);
 
   function handleAddToCart() {
     const productToAdd = {
@@ -29,7 +31,20 @@ function MenuItem({ item }) {
       <img src={image} alt={title} className="z-20 mb-4 w-20" />
       <div className="z-20 space-y-4">
         <h3 className="font-semibold">{title}</h3>
-        <p className="mb-2 text-sm font-light text-stone-600">{description}</p>
+        <div>
+          <p
+            className={`mb-0 h-14 text-xs font-light leading-6 text-stone-600 ${isExpanded ? 'h-full overflow-visible' : 'overflow-hidden'}`}
+          >
+            {description}
+          </p>
+
+          <button
+            onClick={() => setIsExpanded((x) => !x)}
+            className="text-xs text-stone-500 hover:text-stone-700"
+          >
+            {!isExpanded ? '..show more' : '...show less'}
+          </button>
+        </div>
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="font-semibold">{formatCurrency(price)}</p>

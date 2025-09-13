@@ -1,12 +1,38 @@
-# React + Vite
+# Forket Inc. 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and minimalist e-commerce platform built with [React 19](https://reactjs.org/) and [Vite](https://vitejs.dev/), powered by custom global state using Redux + Advanced React Router.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[👉 View Live](https://forket.vercel.app)
 
-## Expanding the ESLint configuration
+## ⚙️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ React 19
+- ⚡ Vite
+- 🔁 Redux + Advanced React Router
+- 🛠️ Tailwind CSS
+- 📦 React Router DOM v7
+- 📋 ESLint
+
+## 📦 Features
+
+- 👤 Insert username to login
+- 🛍️ Add to Cart
+- 💳 Place Order
+- 📦 Product Inventory Management
+- 🔍 Search for product order ID
+- 🧠 Global State with Redux Store
+- 📱 Fully Responsive Design
+
+## 📂 Project Structure
+
+1. Homepage
+2. Menu
+3. Cart
+4. Create order
+5. View order
+
+## Final Note
+
+This project is still a work in progress. If you'd like to continue building or improving it, feel free to do so! Please note that there may be minor bugs in the cart or purchasing logic. Have fun exploring and enhancing the application.

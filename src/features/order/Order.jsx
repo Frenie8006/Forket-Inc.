@@ -1,15 +1,24 @@
 import { useLoaderData } from 'react-router-dom';
 import { getOrder } from '../../services/apiProduct';
+import {
+  calcMinutesLeft,
+  formatCurrency,
+  formatDate,
+} from '../../utils/helpers';
+import { getRandomFutureDate } from '../../utils/getRandomFutureDate';
 
 import OrderItem from './OrderItem';
 import UpdateOrder from './UpdateOrder';
-import { formatCurrency } from '../../utils/helpers';
 
 function Order() {
   const order = useLoaderData();
   const { id, cart, priority } = order;
   const totalCartPrice = cart.reduce((sum, item) => sum + item.totalPrice, 0);
   const priorityPrice = priority ? totalCartPrice * 0.2 : 0;
+
+  const randomDate = getRandomFutureDate();
+  const minutesLeft = calcMinutesLeft(randomDate);
+  const formattedDate = formatDate(randomDate);
 
   return (
     <div className="bg-stone-100 p-4 shadow-md sm:p-8 md:mx-auto md:max-w-2xl lg:max-w-4xl">
@@ -29,8 +38,8 @@ function Order() {
       </div>
 
       <div className="mb-4 flex flex-col items-center justify-between gap-2 bg-stone-200 p-4 sm:flex-row">
-        <p>Only 48 minutes left 😃</p>
-        <small>(Estimated delivery: Sep 8, 09:35 PM)</small>
+        <p>Only {minutesLeft} minutes left 😃</p>
+        <small>(Estimated delivery: {formattedDate})</small>
       </div>
 
       <div className="mb-4 flex flex-col gap-2 border-b border-stone-300 pb-4">

@@ -20,6 +20,10 @@ function AppLayout() {
           <Outlet />
         </main>
       </div>
+
+      <p className="bg-sky-950 py-4 text-center text-xs text-stone-300">
+        © Copyright 2025 by Frenie — Forket Inc.
+      </p>
     </div>
   );
 }

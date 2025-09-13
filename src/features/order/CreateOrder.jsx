@@ -32,8 +32,8 @@ function CreateOrder() {
   if (!cart.length) return <EmptyCart />;
 
   return (
-    <div className="mb-6 flex justify-center">
-      <div className="mx-10 mt-10 flex w-10/12 flex-col items-center rounded-sm bg-stone-200 px-6 py-10 shadow-lg sm:w-9/12 md:w-8/12 lg:w-8/12">
+    <div className="flex justify-center">
+      <div className="flex flex-col items-center bg-stone-100 px-6 py-10 shadow-lg max-[400px]:w-full sm:w-9/12 md:w-8/12 lg:w-8/12">
         <h2 className="mb-6 text-center text-lg font-semibold uppercase tracking-wider text-stone-700">
           Ready to order? Let's go!
         </h2>
