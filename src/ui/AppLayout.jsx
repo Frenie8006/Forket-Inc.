@@ -1,8 +1,9 @@
 import { Outlet, useNavigation } from 'react-router-dom';
 
 import Header from './Header';
-// import CartOverview from '../features/cart/CartOverview';
 import Loader from './Loader';
+// import CartOverview from '../features/cart/CartOverview';
+import heroWaveBg from '../assets/hero-wave-bg.png';
 
 function AppLayout() {
   const navigation = useNavigation();
@@ -10,7 +11,10 @@ function AppLayout() {
 
   // bg-[length:100%_auto] bg-top bg-repeat
   return (
-    <div className="grid min-h-screen grid-rows-[auto_1fr_auto] bg-[url('../../public/hero-wave-bg.png')]">
+    <div
+      className="grid min-h-screen grid-rows-[auto_1fr_auto]"
+      style={{ backgroundImage: `url(${heroWaveBg})` }}
+    >
       {isLoading && <Loader />}
 
       <Header />
