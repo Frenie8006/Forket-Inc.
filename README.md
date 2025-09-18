@@ -4,7 +4,7 @@ A modern and minimalist e-commerce platform built with [React 19](https://reactj
 
 ## 🚀 Live Demo
 
-[👉 View Live](https://forket.vercel.app)
+[👉 View Live](https://forket-inc.vercel.app)
 
 ## ⚙️ Tech Stack
 

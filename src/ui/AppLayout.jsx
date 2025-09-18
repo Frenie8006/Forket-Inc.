@@ -12,7 +12,7 @@ function AppLayout() {
   // bg-[length:100%_auto] bg-top bg-repeat
   return (
     <div
-      className="grid min-h-screen grid-rows-[auto_1fr_auto]"
+      className="grid min-h-screen grid-rows-[auto_1fr_auto] xl:bg-[length:100%_auto] xl:bg-no-repeat"
       style={{ backgroundImage: `url(${heroWaveBg})` }}
     >
       {isLoading && <Loader />}

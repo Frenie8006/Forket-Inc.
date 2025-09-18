@@ -8,7 +8,7 @@ function Menu() {
   const menu = useLoaderData();
 
   return (
-    <div>
+    <div className="bg-sky-950">
       <ul className="m-4 space-y-1 divide-y divide-stone-300">
         {menu.map((item) => (
           <MenuItem item={item} key={item.id} />
