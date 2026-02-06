@@ -26,7 +26,7 @@ function AppLayout() {
       </div>
 
       <p className="bg-sky-950 py-4 text-center text-xs text-stone-300">
-        © Copyright 2026 by Section 3 — Forket Inc.
+        © 2026 Forket Inc. — BSIT 2, Section 3
       </p>
     </div>
   );
